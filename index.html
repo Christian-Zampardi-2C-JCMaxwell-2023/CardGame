@@ -10,13 +10,14 @@
     <style>
         img {
             width: 200px;
+            height: 250px
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-    <span class="counter"><h1>Punti =</span></span  id="counter"> 0 </span>
+    <h1>Punti =<span  id="counter"> 0 </span></h1>
 
     <div id="tavolo"></div>
     <div> 
@@ -31,8 +32,8 @@
         carte.forEach(element => {
             tavolo.innerHTML += '<img id="' + element + '" src="pokemon-card-retro.png" onclick="gira(this)" />'
         });
-        var counter= document.getElementById("counter") ;
-        var counter = 0
+        let counter= document.getElementById("counter") ;
+        let punteggio=0
         
         function gira(carta) {
             NcarteGirate++ 
@@ -43,11 +44,14 @@
             primaCartaGirata = carta
             else{
                 NcarteGirate = 0
-            if (carte.src == primaCartaGirata.src)
-            console.log('BRAVO +1 PUNTO')
+            if (carta.src == primaCartaGirata.src)
+            {console.log('BRAVO +1 PUNTO')
+            punteggio=punteggio+1
+        counter.innerHTML = punteggio}
             else {
                 console.log('RIPROVACI')
                 //gira le carte scoperte sul retro
+
                 setTimeout(()=>{
                  carta.src = "pokemon-card-retro.png" 
                  primaCartaGirata.src = "pokemon-card-retro.png"
@@ -61,4 +65,4 @@
     </script>
 </body>
 
-</html>
+</html> 
